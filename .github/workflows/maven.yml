@@ -1,0 +1,43 @@
+# ==============================================================================
+# GitHub Actions CI Workflow for EventCraft (SWP391) | SWT301 Lab 2 Exercise 3
+# ==============================================================================
+name: EventCraft TestNG CI Pipeline | © 2026
+
+on:
+  push:
+    branches: [ "main", "master", "dev" ]
+  pull_request:
+    branches: [ "main", "master", "dev" ]
+
+jobs:
+  build:
+    name: Build & Run TestNG Suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 (Temurin)
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build and Run TestNG Tests with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Distribute JAR Artifact
+        run: |
+          mkdir -p staging
+          cp target/*.jar staging/ 2>/dev/null || true
+
+      - name: Upload Build & Test Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: EventCraft-Build-Artifacts
+          path: |
+            staging/
+            target/surefire-reports/

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [EventCraft_Platform_TestSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Core_Business_Validation_Tests(failed)" verbose="0">
+    <classes>
+      <class name="com.swp391.eventcraft.service.AuthenticationTest">
+        <methods>
+          <include name="testAuthenticate" invocation-numbers="2"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.swp391.eventcraft.service.AuthenticationTest -->
+    </classes>
+  </test> <!-- Core_Business_Validation_Tests(failed) -->
+</suite> <!-- Failed suite [EventCraft_Platform_TestSuite] -->
