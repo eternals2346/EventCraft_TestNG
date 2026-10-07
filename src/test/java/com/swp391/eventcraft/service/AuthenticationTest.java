@@ -24,7 +24,7 @@ public class AuthenticationTest {
                 // Username, Password, Kết quả mong đợi (Expected)
                 {"admin",     "Admin@123",       true},  // UTCID01: Admin đúng -> true (Normal)
                 {"user_demo", "EventCraft@2026", true},  // UTCID02: User đúng -> true (Normal)
-                {"admin",     "Admin@123",      false}, // UTCID03: Sai pass -> false (Abnormal)
+                {"admin",     "SaiMatKhau",      false}, // UTCID03: Sai pass -> false (Abnormal)
                 {"",          "Admin@123",       false}, // UTCID04: Username rỗng -> false (Abnormal)
                 {"admin",     null,              false}, // UTCID05: Password null -> false (Abnormal)
                 {null,        "Admin@123",       false}  // UTCID06: Username null -> false (Abnormal)
